@@ -18,112 +18,155 @@ public class Principal {
 
 		// Variable para introducir opción del menú
 		int menu;
+		// Bucle para salir del control de la base de datos cuando quieras
+		do {
+			// Mostrar menú
+			System.out.println("Introduce una opción: ");
+			System.out.println("1. Crear");
+			System.out.println("2. Insertar");
+			System.out.println("3. Mostrar");
+			System.out.println("4. Borrar");
+			System.out.println("5. Salir");
 
-		// Mostrar menú
-		System.out.println("Introduce una opción: ");
-		System.out.println("1. Crear");
-		System.out.println("2. Insertar");
-		System.out.println("3. Mostrar");
-		System.out.println("4. Borrar");
+			// El usuario introduce una opción
+			menu = sc.nextInt();
 
-		// El usuario introduce una opción
-		menu = sc.nextInt();
+			// Limpiar buffer
+			sc.nextLine();
 
-		// Limpiar buffer
-		sc.nextLine();
-
-		// Switch para cada caso
-		switch (menu) {
-		// Creación de tablas
-		case 1 -> {
-			System.out.println("¿Qué deseas crear?");
-			System.out.println("1. Mesa");
-			System.out.println("2. Factura");
-			System.out.println("3. Productos");
-			System.out.println("4. Pedido");
-			System.out.println("5. Todas las tablas");
-			System.out.print("Opción: ");
-			int opcion = sc.nextInt();
-
-			switch (opcion) {
-			case 1 -> crearMesa();
-			case 2 -> crearFactura();
-			case 3 -> crearProductos();
-			case 4 -> crearPedido();
-			case 5 -> {
-				crearMesa();
-				crearFactura();
-				crearProductos();
-				crearPedido();
-			}
-			default -> System.out.println("Opción no válida.");
-			}
-		}
-		// Insercción de datos
-		case 2 -> {
-
-		}
-		// Mostrar tablas
-		// Mostrar tablas
-		case 3 -> {
-			System.out.println("¿Qué tabla deseas mostrar?");
-			System.out.println("1. Mesa");
-			System.out.println("2. Factura");
-			System.out.println("3. Productos");
-			System.out.println("4. Pedido");
-			System.out.println("5. Todas las tablas");
-			System.out.print("Opción: ");
-			int opcionMostrar = sc.nextInt();
-
-			switch (opcionMostrar) {
+			// Switch para cada caso
+			switch (menu) {
+			// Creación de tablas
 			case 1 -> {
-				if (tablaExiste("Mesa"))
-					mostrarTabla("Mesa");
-				else
-					System.out.println("La tabla 'Mesa' no existe.");
+				System.out.println("¿Qué deseas crear?");
+				System.out.println("1. Mesa");
+				System.out.println("2. Factura");
+				System.out.println("3. Productos");
+				System.out.println("4. Pedido");
+				System.out.println("5. Todas las tablas");
+				System.out.print("Opción: ");
+				int opcion = sc.nextInt();
+
+				switch (opcion) {
+				case 1 -> crearMesa();
+				case 2 -> crearFactura();
+				case 3 -> crearProductos();
+				case 4 -> crearPedido();
+				case 5 -> {
+					crearMesa();
+					crearFactura();
+					crearProductos();
+					crearPedido();
+				}
+				default -> System.out.println("Opción no válida.");
+				}
 			}
+			// Insercción de datos
 			case 2 -> {
-				if (tablaExiste("Factura"))
-					mostrarTabla("Factura");
-				else
-					System.out.println("La tabla 'Factura' no existe.");
+
 			}
+			// Mostrar tablas
 			case 3 -> {
-				if (tablaExiste("Productos"))
-					mostrarTabla("Productos");
-				else
-					System.out.println("La tabla 'Productos' no existe.");
+				System.out.println("¿Qué tabla deseas mostrar?");
+				System.out.println("1. Mesa");
+				System.out.println("2. Factura");
+				System.out.println("3. Productos");
+				System.out.println("4. Pedido");
+				System.out.println("5. Todas las tablas");
+				System.out.print("Opción: ");
+				int opcionMostrar = sc.nextInt();
+
+				switch (opcionMostrar) {
+				case 1 -> {
+					if (tablaExiste("Mesa"))
+						mostrarTabla("Mesa");
+					else
+						System.out.println("La tabla 'Mesa' no existe.");
+				}
+				case 2 -> {
+					if (tablaExiste("Factura"))
+						mostrarTabla("Factura");
+					else
+						System.out.println("La tabla 'Factura' no existe.");
+				}
+				case 3 -> {
+					if (tablaExiste("Productos"))
+						mostrarTabla("Productos");
+					else
+						System.out.println("La tabla 'Productos' no existe.");
+				}
+				case 4 -> {
+					if (tablaExiste("Pedido"))
+						mostrarTabla("Pedido");
+					else
+						System.out.println("La tabla 'Pedido' no existe.");
+				}
+				case 5 -> {
+					if (tablaExiste("Mesa"))
+						mostrarTabla("Mesa");
+					if (tablaExiste("Factura"))
+						mostrarTabla("Factura");
+					if (tablaExiste("Productos"))
+						mostrarTabla("Productos");
+					if (tablaExiste("Pedido"))
+						mostrarTabla("Pedido");
+				}
+				default -> System.out.println("Opción no válida.");
+				}
 			}
+
+			// Borrar tablas
 			case 4 -> {
-				if (tablaExiste("Pedido"))
-					mostrarTabla("Pedido");
-				else
-					System.out.println("La tabla 'Pedido' no existe.");
+				System.out.println("¿Qué tabla deseas borrar?");
+				System.out.println("1. Mesa");
+				System.out.println("2. Factura");
+				System.out.println("3. Productos");
+				System.out.println("4. Pedido");
+				System.out.println("5. Todas las tablas");
+				System.out.print("Opción: ");
+				int opcionBorrar = sc.nextInt();
+
+				switch (opcionBorrar) {
+				case 1 -> {
+					if (tablaExiste("Mesa"))
+						borrarMesa();
+					else
+						System.out.println("La tabla 'Mesa' no existe.");
+				}
+				case 2 -> {
+					if (tablaExiste("Factura"))
+						borrarFactura();
+					else
+						System.out.println("La tabla 'Factura' no existe.");
+				}
+				case 3 -> {
+					if (tablaExiste("Productos"))
+						borrarProductos();
+					else
+						System.out.println("La tabla 'Productos' no existe.");
+				}
+				case 4 -> {
+					if (tablaExiste("Pedido"))
+						borrarPedido();
+					else
+						System.out.println("La tabla 'Pedido' no existe.");
+				}
+				case 5 -> borrarTodas();
+				default -> System.out.println("Opción no válida.");
+				}
 			}
+
+			// Mensaje de salir
 			case 5 -> {
-				if (tablaExiste("Mesa"))
-					mostrarTabla("Mesa");
-				if (tablaExiste("Factura"))
-					mostrarTabla("Factura");
-				if (tablaExiste("Productos"))
-					mostrarTabla("Productos");
-				if (tablaExiste("Pedido"))
-					mostrarTabla("Pedido");
+				System.out.println("Saliendo...");
 			}
-			default -> System.out.println("Opción no válida.");
+
+			default -> {
+				System.out.println("Opción no valida");
 			}
-		}
 
-		// Borrar tablas
-		case 4 -> {
-
-		}
-
-		default -> {
-			System.out.println("Opción no valida");
-		}
-
-		}
+			}
+		} while (menu != 5);
 
 		// Cerrar scanner
 		sc.close();
@@ -266,4 +309,71 @@ public class Principal {
 			System.err.println("Error al mostrar la tabla: " + e.getMessage());
 		}
 	}
+
+	// Método general para borrar tablas
+	public static boolean borrarTabla(String nombreTabla) {
+		boolean borrada = false;
+		String sql = "DROP TABLE IF EXISTS " + nombreTabla;
+
+		try (Connection con = DriverManager.getConnection(Constantes.URL, Constantes.USUARIO, Constantes.CONTRASEÑA);
+				PreparedStatement ps = con.prepareStatement(sql)) {
+
+			ps.executeUpdate();
+			System.out.println("Tabla '" + nombreTabla + "' borrada correctamente.");
+			borrada = true;
+
+		} catch (SQLException e) {
+			System.err.println("Error al borrar la tabla '" + nombreTabla + "': " + e.getMessage());
+		}
+
+		return borrada;
+	}
+
+	// Métodos específicos
+	public static void borrarPedido() {
+		System.out.println("Borrando tabla Pedido...");
+		borrarTabla("Pedido");
+	}
+
+	public static void borrarFactura() {
+		System.out.println("Borrando tabla Factura...");
+		if (tablaExiste("Pedido")) {
+			System.out.println("Primero debes borrar 'Pedido' ya que depende de 'Factura'.");
+		} else {
+			borrarTabla("Factura");
+		}
+	}
+
+	public static void borrarProductos() {
+		System.out.println("Borrando tabla Productos...");
+		if (tablaExiste("Pedido")) {
+			System.out.println("Primero debes borrar 'Pedido' ya que depende de 'Productos'.");
+		} else {
+			borrarTabla("Productos");
+		}
+	}
+
+	public static void borrarMesa() {
+		System.out.println("Borrando tabla Mesa...");
+		if (tablaExiste("Factura")) {
+			System.out.println("Primero debes borrar 'Factura' ya que depende de 'Mesa'.");
+		} else {
+			borrarTabla("Mesa");
+		}
+	}
+
+	// Método para borrar todas en orden correcto
+	public static void borrarTodas() {
+		System.out.println("Borrando todas las tablas...");
+
+		if (tablaExiste("Pedido"))
+			borrarPedido();
+		if (tablaExiste("Factura"))
+			borrarFactura();
+		if (tablaExiste("Productos"))
+			borrarProductos();
+		if (tablaExiste("Mesa"))
+			borrarMesa();
+	}
+
 }

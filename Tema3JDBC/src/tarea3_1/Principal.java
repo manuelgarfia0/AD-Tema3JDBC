@@ -21,9 +21,7 @@ public class Principal {
 
 			switch (menu) {
 			case 1 -> GestorTablas.menuCrear(sc);
-			case 2 -> {
-				// Aquí podrás añadir el menú de inserción más adelante
-			}
+			case 2 -> GestorInsertar.menuInsertar(sc);
 			case 3 -> GestorTablas.menuMostrar(sc);
 			case 4 -> GestorTablas.menuBorrar(sc);
 			case 5 -> System.out.println("Saliendo...");

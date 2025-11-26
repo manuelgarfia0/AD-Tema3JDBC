@@ -15,7 +15,7 @@ public class GestorInsertar {
 		System.out.println("4. Pedido");
 		System.out.print("Opción: ");
 		int opcion = sc.nextInt();
-		sc.nextLine(); // limpiar buffer
+		sc.nextLine();
 
 		switch (opcion) {
 		case 1 -> insertarMesa(sc);
@@ -26,7 +26,6 @@ public class GestorInsertar {
 		}
 	}
 
-	// ===== INSERTAR EN MESA =====
 	public static void insertarMesa(Scanner sc) {
 		if (!GestorTablas.tablaExiste("Mesa")) {
 			System.out.println("La tabla 'Mesa' no existe.");
@@ -52,7 +51,6 @@ public class GestorInsertar {
 		}
 	}
 
-	// ===== INSERTAR EN FACTURA =====
 	public static void insertarFactura(Scanner sc) {
 		if (!GestorTablas.tablaExiste("Factura")) {
 			System.out.println("La tabla 'Factura' no existe.");
@@ -61,7 +59,7 @@ public class GestorInsertar {
 
 		System.out.print("ID de la mesa: ");
 		int idMesa = sc.nextInt();
-		sc.nextLine(); // limpiar
+		sc.nextLine();
 		System.out.print("Tipo de pago: ");
 		String tipoPago = sc.nextLine();
 		System.out.print("Importe: ");
@@ -82,7 +80,6 @@ public class GestorInsertar {
 		}
 	}
 
-	// ===== INSERTAR EN PRODUCTOS =====
 	public static void insertarProducto(Scanner sc) {
 		if (!GestorTablas.tablaExiste("Productos")) {
 			System.out.println("La tabla 'Productos' no existe.");
@@ -108,7 +105,6 @@ public class GestorInsertar {
 		}
 	}
 
-	// ===== INSERTAR EN PEDIDO =====
 	public static void insertarPedido(Scanner sc) {
 		if (!GestorTablas.tablaExiste("Pedido")) {
 			System.out.println("La tabla 'Pedido' no existe.");
